@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
             imageView.setImageBitmap(imageBitmap);
 
             File file = getFile(PHOTO_NAME);
-            FileOutputStream out = null;
+            FileOutputStream out;
             try {
                 if (!file.exists()) {
                     file.createNewFile();
