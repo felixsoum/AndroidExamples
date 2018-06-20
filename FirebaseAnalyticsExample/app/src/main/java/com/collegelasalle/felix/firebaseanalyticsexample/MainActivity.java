@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendEvent(1);
+                sendEvent(1, "Apple");
             }
         });
 
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendEvent(2);
+                sendEvent(2, "Orange");
             }
         });
 
@@ -40,15 +40,15 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendEvent(3);
+                sendEvent(3, "Banana");
             }
         });
     }
 
-    private void sendEvent(int itemID) {
+    private void sendEvent(int itemID, string fruitType) {
         Bundle bundle = new Bundle();
-        bundle.putInt(FirebaseAnalytics.Param.ITEM_ID, itemID);
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "fruit");
+        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, itemID);
+        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, fruitType);
         mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
     }
 }
